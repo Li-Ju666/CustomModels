@@ -59,7 +59,7 @@ train_model(model, (train_x, train_y), (test_x, test_y), epoch=50)
 #
 # fig.show()
 
-model.save("./model.h5")
+model.save("./model", save_format='h5')
 joblib.dump(scaler, "./scaler")
 
 # newscaler = joblib.load("project/customAutoscaler/predictive-cpa/init/scaler.joblib")
