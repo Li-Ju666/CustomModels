@@ -31,12 +31,13 @@ def train_model(model, train_set, val_set, epoch=1, batch_size=30):
     model.fit(train_x, train_y, epochs=epoch, batch_size=batch_size,
               validation_data=val_set, verbose=2, shuffle=False)
 
-train_samples = 2000
+train_samples = 2*180
 n_feature = 5
 
 data = data_read("./metrics_log.csv")
-train = data[0:train_samples, :]
-test = data[train_samples:, :]
+train = data[10:train_samples, :]
+test = train[-100:, :]
+train = train[:-100, :]
 
 scaler = MinMaxScaler(feature_range=(0, 1))
 
